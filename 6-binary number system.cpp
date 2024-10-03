@@ -81,7 +81,6 @@ int main(){
     cout << "Enter the number you want to convert to Decimal form : " ;
     cin >> m;
     BiToDec(m);
-    
 
     return 0;
 }
