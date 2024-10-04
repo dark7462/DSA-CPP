@@ -63,7 +63,6 @@ int main(){
 
 //==================================================================
 
-
     int n;
     cout << "Enter the number you want to convert to binary form : " ;
     cin >> n;
