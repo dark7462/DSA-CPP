@@ -9,11 +9,16 @@ int main(){
 
     cout << (1 & 0) << endl;//0
     cout << (1 & 1) << endl;//1
+    //it basically works like and operator it will return true when both are of same bit
+
     //you can understand it as true false.
     cout << (1 | 0) <<  endl;//1
-    cout << (0 | 0) << endl; //1
+    cout << (0 | 0) << endl; //0
+    //it works like or operator it will return false when both of them are of same bit
 
     cout << (3^10) << endl;
+    //xor works like if both are diff bits i'll return false
+    //and if ye don't have both same then it'll return true
     //xor deals with the bitwise values of the integer
 
 
