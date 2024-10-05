@@ -17,8 +17,8 @@ int main(){
     //it works like or operator it will return false when both of them are of same bit
 
     cout << (3^10) << endl;
-    //xor works like if both are diff bits i'll return false
-    //and if ye don't have both same then it'll return true
+    //xor works like if both are diff bits it'll return 1
+    //and if ye don't have both same then it'll return 0
     //xor deals with the bitwise values of the integer
 
 
@@ -27,7 +27,6 @@ int main(){
     //in left shift operator the number shift it self by the 2nd value given to the left and the blank space are filled with zeros
 
     cout << (4<<2) << endl;//16
-
     //you can also say that the number is performing a * 2^b
 
     //in the right shift operator the number shiftes it self by number of places to the right
