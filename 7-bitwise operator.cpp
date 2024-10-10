@@ -37,8 +37,5 @@ int main(){
     //SCOPES
         //varibales which we declear inside any loop,if esle , in any block of code it can't be accessed out it
         //but if we want to have a global varible that can be accessed though out the program then declare it before the int main and after the preprocessor directive
-    
-    
-
     return 0;
 }
