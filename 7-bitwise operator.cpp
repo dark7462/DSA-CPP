@@ -37,5 +37,16 @@ int main(){
     //SCOPES
         //varibales which we declear inside any loop,if esle , in any block of code it can't be accessed out it
         //but if we want to have a global varible that can be accessed though out the program then declare it before the int main and after the preprocessor directive
+
+    //Data type modifiers
+        //these are used to increse or decrease the size of the data stored in a variable
+
+    cout << sizeof(int) << endl;
+    cout << sizeof(long int) << endl;
+    cout << sizeof(short int) << endl;
+    cout << sizeof(long long int) << endl;
+
+
+
     return 0;
 }
