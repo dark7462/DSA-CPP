@@ -65,7 +65,24 @@ int summall(int n){
 }
 
 
+//there are two type of functions pass by value and pass by reference functions
+/*
+    Pass by value - in this when you pass any value to the funtion it makes a copy of the argument and preform the tasks in the fucntion
+    Pass by reference - in this when you pass any value to the funtion it passed the address of the argument so the value in that address is changed/manupulated
+    arrays are always passed in pass by reference
+*/
 
+int pass_by_value(int n){
+    cout << "Inside the funtion : " << n << endl;
+    n+=10;
+    return n;
+}
+
+int pass_by_reference(int &n){
+    cout << "Inside the funtion : " << n << endl;
+    n+=10;
+    return n;
+}
 
 
 int main(){
@@ -94,8 +111,13 @@ int main(){
 
     summall(165);
 
-
-
+    int a = 10;
+    int b = 10;
+    pass_by_value(a);
+    cout << "Inside int main : " << a << endl;
+    pass_by_reference(b);
+    cout << "Inside int main : " << b << endl;
+    
 
     return 0;
 }
