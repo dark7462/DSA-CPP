@@ -16,7 +16,8 @@ int main(){
     for(int i = 0 ; i < n ; i++){
         cin >> A[i];
     }
-    bubble_sort(A,n,0,0);
+    bubble_sort(A,n,0,0);//time complexity is O(n^2)
+    //space complexity is O(n)
     for(int i = 0 ; i < n ; i++){
         cout << A[i] << "\t";
     }
