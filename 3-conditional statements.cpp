@@ -87,10 +87,17 @@ int main(){
         cout << i << "\n";
     }
 
+    // do while loop
+    int k=0;
+    do{
+        cout << "Hello\t" << k+1 << endl;   //block of code
+        k++;
+    }while(k<5);    // condition (atleast one time it will run)
+
     //sum of i to n
     int n=3;
     int k = 0;
-    for(int i=0;i<=n;i++){
+    for(int i=0;i<=n;i++){  // initial point , condition, increment or decreament
         k+=i;
     }
     cout << k << endl;
