@@ -18,7 +18,8 @@ int main(){
     int key;
     cout << "Enter the target : ";
     cin >> key;
-    int index = lieaner_serch(n,A,key);
+    int index = lieaner_serch(n,A,key);//time complexity is O(n)
+    //space complexity is O(1)
     if(index == -1){
         cout << "Element not found";
     }else{

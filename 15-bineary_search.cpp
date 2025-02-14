@@ -18,7 +18,8 @@ int main(){
     int key;
     cout << "Enter the target : ";
     cin >> key;
-    int index = binary_search(n,A,key);
+    int index = binary_search(n,A,key);//time complexity is O(log n)
+    //space complexity is O(1)
     (index == -1)? cout << "Element don't exists": cout << "elemet found in : " << index << " index";
     return 0;
 }

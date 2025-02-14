@@ -21,7 +21,8 @@ int main(){
     for(int i=0;i<n;i++){
         cin >> A[i];
     }
-    insertion_sort(n,A);
+    insertion_sort(n,A);//time complexity is O(n^2)
+    //space complexity is O(1)
     for(int i=0;i<n;i++){
         cout << A[i] << "\t";
     }cout << endl;
