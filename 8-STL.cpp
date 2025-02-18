@@ -227,6 +227,51 @@ void Priorty_queue(){   //same as queue but gives priority to the elements in ac
     }cout << endl;
 
 
+}  
+void Map(){  // map is having a key (unique element)  and value (can be anything)
+
+    // can be visualized as a table with vlaues as pair
+    map <string,float> m; // map <data type of key, data type of value> name of map;
+
+    //storing marks in the map 
+    // it'll automatically be sorted acessending order if string the lexiographycally
+    m["anurag"] = 9.6;
+    m["piyush"] = 9.9;
+    m["harsh"] = 8.2;
+    m["vivek"] = 7.8;
+
+    // you can also use insert and emplace
+    m.insert({"rahul",7.9}); //pass the pair/object inside the funtion
+    m.emplace("ritik",5.9); // no need to make it a object
+
+    // you can print the value normally too
+    cout << "value of piyush : " << m["piyush"] << endl;
+
+    //count 
+    // return the number of values/instances assiged to the key
+    cout << "count = " << m.count("anurag") << endl;
+    
+    //erase
+    //use this to erase any value assiged with the key
+    m.erase("ritik");
+    cout << "ritik : " << m["ritik"] << endl;
+
+    //find
+    //you serch for the key if it's found the you return the iterator if not the it return the end value
+    if(m.find("anurag") != m.end()){ // should be a condition that gives 0/1 true/false
+        cout << "found" << endl;
+    }else{
+        cout << "not found" << endl;
+    }
+
+    for(auto p : m){
+        cout << p.first << " " << p.second << endl;
+    }
+    
+
+}
+void Multi_map(){
+    
 }
 int main(){
     // pairs();
@@ -236,6 +281,8 @@ int main(){
     // Deque();
     // Stack();
     // Queue();
-    Priorty_queue();
+    // Priorty_queue();
+    // Map();
+    Multi_map();
     return 0;
 }
