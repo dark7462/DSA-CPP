@@ -270,8 +270,204 @@ void Map(){  // map is having a key (unique element)  and value (can be anything
     
 
 }
-void Multi_map(){
+void Multi_map(){   // here we can create a map with multiple keys
+
+    multimap<string,int> mm;
+    mm.emplace("tv",10);
+    mm.emplace("tv",3);
+    mm.emplace("tv",1);
+    mm.emplace("tv",14); // here we have to use emplace cuz we can't use square bracket notation
+    for( auto i : mm){
+        cout << i.first << " " << i.second << endl;
+    }
+    print_space();
+
+    //erase
+    // erase the every element 
+    // mm.erase("tv"); // it'll remove every element with the key tv
+
+    // use find and erase insted
+    mm.erase(mm.find("tv")); //it'll remove the iteraror element only
+    for( auto i : mm){
+        cout << i.first << " " << i.second << endl;
+    }
+
+    //rest maximum things are same as others
+}
+void Unordered_map(){   // same as map but it dosen't sort the elements it's in random order
+    // time complexity of this is O(1) in every uses 
+    //while mpa is having O(log n) because it's self balencing tree
+    unordered_map<string,int> um;
+    um.emplace("anu",23);
+    um.emplace("piyush",23);
+    um.emplace("vivek",33);
+    um.emplace("renu",78);
+
+    for(auto i : um){
+        cout << i.first << " " << i.second << endl;
+    }
+    //similar function as ther can be used
+}
+void Set(){ // stores only the unique values in sorted other
+    // since this also uses a self Balancing tree 
+    //time complexity is O(log n) fro every funtions in it (insert, emplace, erase, find, size, empty, count)
+    set<int> s;
+    s.insert(2);
+    s.insert(1);
+    s.insert(3);
+    s.insert(5);
+    s.insert(4);
     
+    for (auto i : s){
+        cout << i << "\t";
+    }cout << endl;
+
+    //since it only takes uniques elements
+    s.insert(2);
+    s.insert(1);
+    s.insert(3);
+
+    //these will not have any effect 
+    cout << s.size() << endl;// size will be the same as before the element will not be added
+    for (auto i : s){
+        cout << i << "\t";
+    }cout << endl;
+
+    //rest function are same as others
+
+    //lower_bound
+    // it return either the same value if found or the nearest greater value's iterator that exist it not then it'll return the end iterator
+    // you have to derefrence the iterator to fetch the value
+    cout << *(s.lower_bound(3)) << endl; //will return 4
+    // but if
+    s.erase(5);
+    cout << *(s.lower_bound(5))<< "-lower" << endl; //will return end iterator (no value)
+    //it's like give me value that should not be less than what i asked for
+
+    s.insert(5);
+    //upper bound
+    //it'll return the iterator of the value greater than the value passed
+    cout << *(s.upper_bound(4)) << endl;// return 4
+
+    //just like multimap and ordered map 
+    //multiset also exists  (sorted values but can be duplicate values)
+    // unordered_set also exists (unique values in random order)
+}
+void algorithm(){
+
+    //sort in array
+    cout << "in array :" << endl;
+    int n = 5;
+    int arr[n] = {1,5,3,2,4};
+    sort(arr,arr+n); // start value and end value arr+(n-1) will be the end value but the real end value is arr+n
+    for( auto i : arr) cout << i << " ";
+    cout << endl;
+
+
+    //same can be done in a vetor
+    cout << "in vector :" << endl;
+    vector<int> vec = {1,5,3,2,4};
+    sort(vec.begin(),vec.end());
+    for(auto i : vec)cout << i << " ";
+    cout << endl;
+
+
+    //sorting in decending order
+    //we pass a greater<int>() functor/comparetor in the sort funtion
+    cout << "decending order in vector :" << endl;
+    vector<int> v = {1,5,3,2,4};
+    sort(v.begin(),v.end(),greater<int>());
+    for(auto i : v)cout << i << " ";
+    cout << endl;
+
+}
+//for customCoparetor
+bool coparetor(pair <int, int> p1, pair<int, int> p2){
+    if(p1.second < p2.second) return true;
+    if(p1.second > p2.second) return false; //logoc rfor 2nd element
+
+    // if we want that if 2nd element is same then sort on the basis of first element
+    if(p1.first < p2.first) return true;
+    else return false;
+    
+}
+void customCoparetor(){
+
+    //sorting can be done in pairs also but by defult it sorts the pair with respect the first element of the pair
+    cout << "normal pair : " << endl;
+    vector<pair<int,int>> pv = {{3,6},{7,3},{4,2},{9,2},{8,2}};
+    for(auto i : pv){
+        cout << i.first << "\t" << i.second << endl;
+    }
+
+    //sorted pair by defult
+    cout << "sorted pair : " << endl;
+    sort(pv.begin(),pv.end());
+    for(auto i : pv){
+        cout << i.first << "\t" << i.second << endl;
+    }
+
+    vector<pair<int,int>> pv2(pv);
+    //but if we want to sort the pair with respect to 2nd element 
+    // then we create a custom comparitor (a boolean function that returns true or false based on a condition)
+    // then pass the custom comparitor with in the sort funtion
+    cout << "sorted pair with 2nd element : " << endl;
+    sort(pv2.begin(),pv2.end(),coparetor);
+    for(auto i : pv2){
+        cout << i.first << "\t" << i.second << endl;
+    }
+}
+void otheralgorithm(){
+
+
+    //reverse 
+    //it's used to reverse the whole array
+    vector<int> vec = {1,2,3,4,5};
+    reverse(vec.begin(),vec.end());
+    for(auto i : vec)cout << i << " ";
+    cout << endl;
+
+    //Next premutation
+    //it can give out the next possible combination of elements
+    string s = "abc";
+    next_permutation(s.begin(),s.end());
+    cout << s << endl;
+    // can be in revese too
+    prev_permutation(s.begin(),s.end());
+    cout << s << endl;
+
+    // minimun between 2 values
+    cout << min(5,4) << endl;
+    //maximum between 2 values
+    cout << max(5,4) << endl;
+    //swap of values in 2 variables
+    int a = 1 , b = 2;
+    swap(a,b);
+    cout << "a : " << a << "\tb : " << b << endl;
+
+    // to get maximum & minimun element in the array
+    //max
+    vector<int> v = {3,6,2,47,3,6,2};
+    int MAX = *(max_element(v.begin(),v.end())); // returns the iterator
+    cout << MAX << endl;
+    //min
+    int MINI = *(min_element(v.begin(),v.end())); // returns the iterator
+    cout << MINI << endl;
+
+
+    // to count the bits
+    int n = 15;
+    long int n2 = 15;
+    long long int n3 = 15;
+
+    cout << __builtin_popcount(n) << endl; //4
+    cout << __builtin_popcountl(n2) << endl; //4 
+    cout << __builtin_popcountll(n3) << endl; //4
+    //last l or ll will depend in data type in __bulitin_popcount() , __builtin_popcountl() , __bulitin_popcountll()
+
+
+    // all main STL's completed
+
 }
 int main(){
     // pairs();
@@ -279,10 +475,14 @@ int main(){
     // vectors();
     // List();
     // Deque();
-    // Stack();
     // Queue();
     // Priorty_queue();
     // Map();
-    Multi_map();
+    // Multi_map();
+    // Unordered_map();
+    // Set();
+    // algorithm();
+    // customCoparetor();
+    otheralgorithm();
     return 0;
 }
