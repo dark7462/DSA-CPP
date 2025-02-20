@@ -470,19 +470,19 @@ void otheralgorithm(){
 
 }
 int main(){
-    // pairs();
-    // print_space();
-    // vectors();
-    // List();
-    // Deque();
-    // Queue();
-    // Priorty_queue();
-    // Map();
-    // Multi_map();
-    // Unordered_map();
-    // Set();
-    // algorithm();
-    // customCoparetor();
+    pairs();
+    print_space();
+    vectors();
+    List();
+    Deque();
+    Queue();
+    Priorty_queue();
+    Map();
+    Multi_map();
+    Unordered_map();
+    Set();
+    algorithm();
+    customCoparetor();
     otheralgorithm();
     return 0;
 }
