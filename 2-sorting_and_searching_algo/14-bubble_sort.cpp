@@ -11,7 +11,15 @@ void bubble_sort(int n, int arr[]){
         }
     }
 }
-
+void bubble_sort_recursion(int A[],int n,int pass,int index){
+    if(pass>=n) return;     // brealk of the passing loop
+    if(index>=n) return;    // break of the swaping loop
+    if(index < n-1 && A[index] > A[index+1]){
+        swap(A[index],A[index+1]);
+    }
+    bubble_sort_recursion(A,n,pass,index+1); //start of the first loop for swaping
+    bubble_sort_recursion(A,n,pass+1,index);  //start of the swaping loop
+}
 int main(){
     int n;
     cout << "size if the array: ";
@@ -21,8 +29,11 @@ int main(){
     for(int i=0;i<n;i++){
         cin >> A[i];
     }
-    bubble_sort(n,A);   //time complexity is O(n^2)
-                        //space complexity is O(1)
+    // bubble_sort(n,A);   //time complexity is O(n^2)
+    //space complexity is O(1)
+
+    bubble_sort_recursion(A,n,0,0);//time complexity is O(n^2)
+    //space complexity is O(n)
     for(int i=0;i<n;i++){
         cout << A[i] << "\t";
     }cout << endl;
