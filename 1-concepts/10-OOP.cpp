@@ -91,6 +91,10 @@ void constructor(){
 
     class con{
     public :
+        string name;
+        int age;
+        int roll_no;
+
         //there are 3 types of constructors (non-parameterised, parameterised, copy)
         //there can be multiple constructor function 
         //there can be multiple constructors but the catch is they need to have diffrent parameters
@@ -102,14 +106,18 @@ void constructor(){
         }
         //parameterised
         con(string n, int a, int rn){
-            name = n;
-            age = a;
-            roll_no = rn;
+            this->name = n;
+            this->age = a;
+            this->roll_no = rn;
         }
-        string name;
-        int age;
-        int roll_no;
+        //copy
+        con(con &obj){  // we pass the real object as call by reffrence
+            this->name = obj.name;
+            this->age = obj.age;
+            this->roll_no = obj.roll_no;
 
+        }
+        
 
         void getInfo(){
             cout << "name : " << name << endl << "age : " << age << endl << "roll_no : " << roll_no << endl;
@@ -125,14 +133,25 @@ void constructor(){
 
     prof p3; //automatically cpp made a constuctor and called it and with that help we created a object
 
-    con c3("anurag",18,14); // can be given direct input
+    con c3("anurag",18,14); // can be given direct input beacuse of parameterised constructor
     c3.getInfo();
 
+    con c4(c3);// now our copy consturictor will be activated which we made;
+
+}
+void ShallowVsDeep_copy(){
+    // Shallow copy means that 
+class student{
+public :
+    string name;
+    double cgpa;
+};
 }
 int main(){
     // basics();
     // setter_and_getter();
     // encapulasion();
-    constructor();
+    // constructor();
+    ShallowVsDeep_copy();
     return 0;
 }
