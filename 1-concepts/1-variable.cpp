@@ -38,7 +38,8 @@ int main(){
     //type casting means that you can convert big data type into small data type
     //example to convert int datatype into char 1 byte into 4 byte then the conversion is explicit and user have to forcefully do it even tho the complier don't allow it
     //implicit conversion - you are storing 1 byte data type value into 4 byte data type value so it is done by the complier
-    char grade ='A';
+
+    // char grade ='A';
     cout << " the value of grade is->" << grade << endl;
 
     int newgrade = grade;
@@ -46,7 +47,7 @@ int main(){
 
     //explicit typecasting - you are storing a high data type value into low data type value like storing double into int
 
-    double price = 99.2223;
+    // double price = 99.2223;
     cout << "current price is->" << price << endl;
 
     int newprice = (int)price;//value will be converted into int value so all the decimals will be removed
