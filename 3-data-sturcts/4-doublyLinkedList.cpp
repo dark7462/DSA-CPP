@@ -1,5 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include<bits/stdc++.h>
+using namespace std;
+
 typedef struct node{
 	int value;
 	struct node *next;
@@ -12,10 +13,10 @@ void CreateNode(int n){ //how many node you want
 	for(int i = 0 ;  i < n ; i++){  //taking inputs and placeing in the list
         
         int val;
-        printf("Enter the %d value of the linkedList : ", i+1);
-		scanf("%d",&val);
+        cout << "Enter the" << i+1 <<  "value of the linkedList : ";
+		cin >> val;
 
-		node *newnode = (node *)malloc(sizeof(node)); //for every value creating a newnode
+		node *newnode = new node; //for every value creating a newnode
 		newnode->value = val;
         newnode->next = NULL;
         newnode->prev = NULL;
@@ -33,25 +34,26 @@ void CreateNode(int n){ //how many node you want
 }
 void printLinkedlist(node *head){
     node *temp = head;
-    printf("\n");
-	while(temp != NULL){    //going though the every node till tail / NULL
-        printf("%d\t",temp->value); //printing the value
+    cout << endl;
+    while(temp != NULL){    //going though the every node till tail / NULL
+        cout << temp->value << "\t"; //printing the value
 		temp = temp->next;  
 	}
-    printf("\n");
+    cout << endl;
 }
 void printRverselist(node *tail){
     node *temp = tail;
-    printf("\n");
+    cout << endl;
 	while(temp != NULL){    //going though the every node till tail / NULL
-        printf("%d\t",temp->value); //printing the value
+        cout << temp->value<<"\t"; //printing the value
 		temp = temp->prev;  
 	}
-    printf("\n");
+    cout << endl;
+
 }
 void push_back(int val){
     //pushing the value in back of the LinkedList
-    node *newnode = (node *)malloc(sizeof(node));
+    node *newnode = new node;
     newnode->value = val;
     newnode->next = NULL;
     newnode->prev = tail;  //palcing after tail and linking the address
@@ -60,7 +62,7 @@ void push_back(int val){
 }
 void push_front(int val){
     //pushing the value in fornt of the LinkedList
-    node *newnode = (node *)malloc(sizeof(node));
+    node *newnode = new node;
     newnode->value = val;
     head->prev = newnode;
     newnode->next = head;//palcing before head and linking the address
@@ -68,7 +70,7 @@ void push_front(int val){
     
 }
 void push(int idx,int val){ //can push at any index
-    node *newnode = (node *)malloc(sizeof(node));   //new node for new value
+    node *newnode = new node;   //new node for new value
     newnode->value = val;
     newnode->next = NULL;
     newnode->prev = NULL;
@@ -79,36 +81,36 @@ void push(int idx,int val){ //can push at any index
     }
 
     int i = 1;
-    node *tempFw = head->next;
-    node *tempBk = head;
+    node *tempFw = head->next; // runing forward
+    node *tempBk = head;    // at back
 
-    while(++i < idx && tempBk != NULL){
+    while(++i < idx && tempBk != NULL){ // reaching the insterinng point
         tempBk = tempFw;
         tempFw = tempFw->next;
     }
 
-    if(tempFw == NULL){
-        printf("Invalid position.\n");
+    if(tempFw == NULL){ // cheacking the invalid position
+        cout << "Invalid position.\n";
         return;
     }
 
     tempBk->next = newnode;
     newnode->next = tempFw;
     tempFw->prev = newnode;
-    newnode->prev = tempBk;
+    newnode->prev = tempBk; //placeing the values and making foward and backwards connection
     
 }
 void del_head(){
     head = head->next;
-    head->prev = NULL;
+    head->prev = NULL;  // removing head
 }
 void del_tail(){
     tail = tail->prev;
-    tail->next = NULL;
+    tail->next = NULL;  //re moving tail
 }
 void del_posi(int idx){
     if(idx == 1){
-        del_head();
+        del_head(); // base case if to be removed at head
         return ;
     }
 
@@ -117,70 +119,73 @@ void del_posi(int idx){
     node *tempBk = head;
 
     while(i++ < idx && tempBk != NULL){
-        tempBk = tempFw;
+        tempBk = tempFw;        // reaching the inserting point
         tempFw = tempFw->next;
     }
 
     if(tempFw == NULL){
-        printf("Invalid position.\n");
+        cout << "Invalid position.\n" << endl;  // invalid area
         return;
     }
 
     tempFw->prev = tempBk->prev;
-    tempBk->prev->next = tempFw;
+    tempBk->prev->next = tempFw;    // placing and making connection
 
     
 }
 int main(){
 	int n ;
-    printf("Enter how many nodes you want : ");
+    cout << "Enter how many nodes you want : ";
 	scanf("%d",&n); // how many nodes you want
 	CreateNode(n);
     int x;
     do{
-        printf("\nchoose the following task to preform\n");
-        printf("\n1. Insert data at head\n");
-        printf("\n2. Insert data at tail\n");
-        printf("\n3. Insert data at any position\n");
-        printf("\n4. Delete data at head\n");
-        printf("\n5. Delete data at tail\n");
-        printf("\n6. Delete data at any position\n");
-        printf("\n7. Display all nodes\n");
-        printf("\n8. Print reverse List\n");
-        printf("\n9. Exit\n");
-        scanf("%d",&x);
+        cout << "\nchoose the following task to preform\n";
+        cout << "\n1. Insert data at head\n";
+        cout << "\n2. Insert data at tail\n";
+        cout << "\n3. Insert data at any position\n";
+        cout << "\n4. Delete data at head\n";
+        cout << "\n5. Delete data at tail\n";
+        cout << "\n6. Delete data at any position\n";
+        cout << "\n7. Display all nodes\n";
+        cout << "\n8. Print reverse List\n";
+        cout << "\n9. Exit\n";
+        cin >> x;
 
         if(x == 1){
             int data;
-            printf("Enter the data you want to insert at head : ");
-            scanf("%d",&data);
+            cout << "Enter the data you want to insert at head : ";
+            cin >> data;
             push_front(data);
         }
         else if(x == 2){
             int data;
-            printf("Enter the data you want to insert at tail : ");
-            scanf("%d",&data);
+            cout << "Enter the data you want to insert at tail : ";
+            cin >> data;
+
             push_back(data);
         }
         else if(x == 3){
             int data, index;
-            printf("Enter the data you want to insert : ");
-            scanf("%d",&data);
-            printf("Enter the location you want to insert the given data : ");
-            scanf("%d", &index);
+            cout << "Enter the data you want to insert : ";
+            cin >> data;
+
+            cout << "Enter the location you want to insert the given data : ";
+            cin >> index;
+
             push(index, data);
         }
         else if(x == 4)del_head();
         else if(x == 5)del_tail();
         else if(x == 6){
             int posi;
-            printf("Enter the position in which you want to delet the node : ");
-            scanf("%d",&posi);
+            cout << "Enter the position in which you want to delet the node : ";
+            cin >> posi;
             del_posi(posi);
         }
         else if(x == 7) printLinkedlist(head);
         else if(x == 8) printRverselist(tail);
-        else if(x == 9) printf("Thanks for using me\n Bye Bye... ;(\n");
+        else if(x == 9) cout << "Thanks for using me\n Bye Bye... ;(\n";
     }while(x<9);
 
 
