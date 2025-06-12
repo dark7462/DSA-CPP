@@ -50,9 +50,8 @@ void Delete(int pos) {
 		cout << "Invalid Position" << endl;
 		return;
 	}
-	node *temp = curr->next;
-	curr->next = temp->next;
-	if (temp == tail) {
+	curr->next = curr->next->next;
+	if (curr->next == head) {
 		tail = curr;
 	}
 }
